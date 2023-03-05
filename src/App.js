@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Counter from './Counter/Counter';
+import SearchForm from './SearchForm/SearchForm';
+import GenreToggle from './GenreToggle/GenreToggle';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Counter initialCount={0} />
+      <SearchForm initialQuery={''}
+        onSearch={(value) => console.log('onSearch: ', value)}
+      />
+      <GenreToggle
+        genreNames={['All', 'Documentary', 'Comedy', 'Horror', 'Crime']}
+        selectedGenre='All'
+        onSelect={(genre) => console.log('onGenreSelect: ', genre)}
+      />
     </div>
   );
 }
